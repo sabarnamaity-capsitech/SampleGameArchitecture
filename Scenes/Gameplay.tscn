@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dx8imhghi8wt7"]
+
+[ext_resource type="Script" uid="uid://cwsr02g05v1tq" path="res://Scenes/MemoryBoardController.gd" id="1_yijg0"]
+[ext_resource type="PackedScene" uid="uid://dm7osm0ms6f2u" path="res://Scenes/Game_panel.tscn" id="2_r5ka5"]
+
+[node name="Gameplay" type="Node2D" unique_id=643758429]
+script = ExtResource("1_yijg0")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=642996538]
+
+[node name="GamePanel" parent="HUD" unique_id=181154879 instance=ExtResource("2_r5ka5")]

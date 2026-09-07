@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dm7osm0ms6f2u"]
+
+[ext_resource type="Texture2D" uid="uid://dc788lcah42yw" path="res://Sprites/pngtree-pause-vector-icon-png-image_3876297.jpg" id="1_oqbby"]
+[ext_resource type="Script" uid="uid://b4bw4ko6rbw0r" path="res://Scripts/GamePanel.gd" id="1_slhgj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aua50"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oqbby"]
+font_size = 80
+
+[node name="GamePanel" type="Control" unique_id=181154879 node_paths=PackedStringArray("pause_btn", "timer_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_slhgj")
+pause_btn = NodePath("Panel/PauseBtn")
+timer_label = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="." unique_id=1669857673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aua50")
+
+[node name="PauseBtn" type="TextureButton" parent="Panel" unique_id=2104407738]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_top = 72.0
+offset_right = -61.55121
+offset_bottom = 224.0
+grow_horizontal = 0
+texture_normal = ExtResource("1_oqbby")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel" unique_id=322949061]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.5
+offset_right = 102.5
+offset_bottom = 110.0
+grow_horizontal = 2
+text = "10.00"
+label_settings = SubResource("LabelSettings_oqbby")

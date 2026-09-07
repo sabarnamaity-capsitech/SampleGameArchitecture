@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://1ipjdx420ujr"]
+
+[ext_resource type="Texture2D" uid="uid://bfjpenbpiwplc" path="res://icon.svg" id="1_8wnth"]
+[ext_resource type="Script" uid="uid://vp8kmdgxv47c" path="res://Scenes/WinPanel.gd" id="1_llaig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_llaig"]
+font_size = 160
+
+[sub_resource type="LabelSettings" id="LabelSettings_qacje"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4erg"]
+font_size = 50
+
+[node name="WinPanel" type="Control" unique_id=1487180464 node_paths=PackedStringArray("time_label", "retry_button", "home_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_llaig")
+time_label = NodePath("Panel/TimeLabel")
+retry_button = NodePath("Panel/Restart")
+home_button = NodePath("Panel/Retry")
+
+[node name="Panel" type="Panel" parent="." unique_id=452676681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=905522518]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.0
+offset_top = 113.0
+offset_right = 156.0
+offset_bottom = 332.0
+grow_horizontal = 2
+text = "Win"
+label_settings = SubResource("LabelSettings_llaig")
+
+[node name="TimeLabel" type="Label" parent="Panel" unique_id=96308379]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 37.0
+offset_right = 104.0
+offset_bottom = 147.0
+grow_horizontal = 2
+text = "10.00"
+label_settings = SubResource("LabelSettings_qacje")
+
+[node name="Restart" type="TextureButton" parent="Panel" unique_id=1130599005]
+modulate = Color(0.38431373, 1, 1, 1)
+self_modulate = Color(1, 1, 0.32941177, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -262.0
+offset_right = 257.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_8wnth")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Restart" unique_id=2017034830]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+label_settings = SubResource("LabelSettings_i4erg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="TextureButton" parent="Panel" unique_id=2021204805]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -130.0
+offset_right = 268.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_8wnth")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Retry" unique_id=1684221423]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+label_settings = SubResource("LabelSettings_i4erg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Homebtn" type="TextureButton" parent="Panel" unique_id=1694938724]
+modulate = Color(1, 0.23921569, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = 56.0
+offset_right = 293.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_8wnth")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/Homebtn" unique_id=973706232]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Home"
+label_settings = SubResource("LabelSettings_i4erg")
+horizontal_alignment = 1
+vertical_alignment = 1

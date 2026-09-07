@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d1lfdxxo6hicv"]
+
+[ext_resource type="Script" uid="uid://b4iro5imoiaix" path="res://Scenes/HomeController.gd" id="1_3wroe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xtytc"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_3wroe"]
+font_size = 100
+
+[node name="Home" type="Control" unique_id=1190345737 node_paths=PackedStringArray("play_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3wroe")
+play_button = NodePath("Panel/TextureButton")
+
+[node name="Panel" type="Panel" parent="." unique_id=570675499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=28606368]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -243.0
+offset_top = 280.0
+offset_right = 160.0
+offset_bottom = 417.0
+grow_horizontal = 2
+text = "Memory"
+label_settings = SubResource("LabelSettings_xtytc")
+
+[node name="TextureButton" type="TextureButton" parent="Panel" unique_id=1764872634]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/TextureButton" unique_id=1165197543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "play"
+label_settings = SubResource("LabelSettings_3wroe")
+horizontal_alignment = 1
+vertical_alignment = 1

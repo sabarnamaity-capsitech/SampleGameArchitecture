@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GameConfig" format=3 uid="uid://jahyucwkem8o"]
+
+[ext_resource type="Script" uid="uid://dbbgd5ooyeqbg" path="res://Scripts/GameConfig.gd" id="1_2umma"]
+[ext_resource type="PackedScene" uid="uid://2213kpxg4iwr" path="res://Scenes/Pause_Panel.tscn" id="1_nq4nb"]
+[ext_resource type="PackedScene" uid="uid://d1lfdxxo6hicv" path="res://Scenes/Home.tscn" id="2_pmo7g"]
+[ext_resource type="PackedScene" uid="uid://1ipjdx420ujr" path="res://Scenes/WinPanel.tscn" id="2_tyoi4"]
+[ext_resource type="PackedScene" uid="uid://dx8imhghi8wt7" path="res://Scenes/Gameplay.tscn" id="4_se1m8"]
+
+[resource]
+script = ExtResource("1_2umma")
+scenes = Dictionary[String, PackedScene]({
+"gameplay": ExtResource("4_se1m8"),
+"home": ExtResource("2_pmo7g")
+})
+panels = Dictionary[String, PackedScene]({
+"pause": ExtResource("1_nq4nb"),
+"win": ExtResource("2_tyoi4")
+})
+metadata/_custom_type_script = "uid://dbbgd5ooyeqbg"
