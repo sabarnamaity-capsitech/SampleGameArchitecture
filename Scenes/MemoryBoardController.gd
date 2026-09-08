@@ -26,6 +26,8 @@ func setup(game: GameManager, sound: AudioManager, _scene: SceneManager) -> void
 	_game = game
 	_sound = sound
 	_ui = GameService.ui
+	if not GameBus.level_restarted.is_connected(_on_restart):
+		GameBus.level_restarted.connect(_on_restart)
 	_initialize()
 func _initialize() -> void:
 	var level_id := _game.current_level_id
@@ -34,8 +36,8 @@ func _initialize() -> void:
 
 	_game.start_level(level_id)
 
-	if not GameBus.level_restarted.is_connected(_on_restart):
-		GameBus.level_restarted.connect(_on_restart)
+	# if not GameBus.level_restarted.is_connected(_on_restart):
+	# 	GameBus.level_restarted.connect(_on_restart)
 
 	_build_board()
 
@@ -44,7 +46,8 @@ func _initialize() -> void:
 	if game_panel and game_panel.has_method("setup"):
 		game_panel.setup(_game, _sound, _ui)
 func _ready() -> void:
-	pass
+	GameBus.level_restarted.connect(_on_restart)
+	# pass
 
 func _on_restart(_id: int) -> void:
 	_build_board()

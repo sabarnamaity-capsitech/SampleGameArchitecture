@@ -23,12 +23,14 @@ func start_level(level_id: int) -> void:
 func select_level(level_id: int) -> void:
 	current_level_id = level_id
 func report_win() -> void:
+	print("REPORT WIN CALLED")
 	if not _running:
 		return
 	_running = false
 	_save.mark_level_complete(current_level_id, _elapsed)
-	GameBus.level_won.emit(current_level_id, _elapsed)
 	_ui.push("win")
+	GameBus.level_won.emit(current_level_id, _elapsed)
+	print("LEVEL WON EMITTED")
 
 func report_lose() -> void:
 	if not _running:

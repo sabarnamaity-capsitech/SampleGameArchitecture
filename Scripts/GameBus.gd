@@ -4,6 +4,7 @@ extends Node
 
 signal level_started(level_number: int)
 signal level_won(level_number: int, time_taken: float)
+signal game_paused(level_number: int)
 signal level_lost(level_number: int)
 signal level_restarted(level_number: int)
 
