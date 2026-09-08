@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b1o4pfgael4yk"]
+
+[ext_resource type="Script" uid="uid://dpb6ck7bdiw0s" path="res://Scenes/LevelPanelController.gd" id="1_7wg8q"]
+[ext_resource type="PackedScene" uid="uid://dotsl11d2wuu4" path="res://Scenes/Level_button.tscn" id="1_nt1vo"]
+[ext_resource type="Resource" uid="uid://cyp6jtglx25yc" path="res://Resource/LevelData.tres" id="3_mkr7l"]
+
+[node name="LevelPanel" type="Control" unique_id=747095111 node_paths=PackedStringArray("level_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7wg8q")
+level_button_scene = ExtResource("1_nt1vo")
+level_data = ExtResource("3_mkr7l")
+level_container = NodePath("Panel/ScrollContainer/GridContainer")
+
+[node name="Panel" type="Panel" parent="." unique_id=1029111732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=601024958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 114.0
+offset_right = -31.0
+offset_bottom = -167.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer" unique_id=362027604]
+layout_mode = 2
+columns = 5

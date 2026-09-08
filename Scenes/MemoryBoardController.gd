@@ -1,7 +1,8 @@
 extends Node2D
 # GAME-SPECIFIC. Card gula viewport size onujayi dynamically size + position hoy.
-
-const GRID_SIZE := 4
+@export var LEVEL_DATABASE : LevelDatabase
+# const GRID_SIZE := 4
+var _grid_size: Vector2i
 const GRID_MARGIN := 40.0        # screen edge theke gap
 const CARD_GAP_RATIO := 0.85     # cell-er koto% card occupy korbe (baki gap)
 const TOP_OFFSET_RATIO := 0.2    # upor theke koto% niche grid shuru hobe
@@ -17,61 +18,107 @@ var _matched: Array[bool] = []
 var _flipped: Array[int] = []
 var _input_locked := false
 var _matches_found := 0
+# func setup(game: GameManager, sound: AudioManager, _scene: SceneManager) -> void:
+# 	_game = game
+# 	_sound = sound
+# 	_ui = GameService.ui
 func setup(game: GameManager, sound: AudioManager, _scene: SceneManager) -> void:
 	_game = game
 	_sound = sound
 	_ui = GameService.ui
-func _ready() -> void:
-	_game.start_level(1)
-	GameBus.level_restarted.connect(_on_restart)
+	_initialize()
+func _initialize() -> void:
+	var level_id := _game.current_level_id
+
+	_grid_size = LEVEL_DATABASE.grid_sizes[level_id - 1]
+
+	_game.start_level(level_id)
+
+	if not GameBus.level_restarted.is_connected(_on_restart):
+		GameBus.level_restarted.connect(_on_restart)
+
 	_build_board()
+
 	var game_panel = $HUD/GamePanel
+
 	if game_panel and game_panel.has_method("setup"):
-		print("setup calling")
 		game_panel.setup(_game, _sound, _ui)
-	else:
-		print("SETUP SKIPPED - node ba method missing")
+func _ready() -> void:
+	pass
 
 func _on_restart(_id: int) -> void:
 	_build_board()
-
 func _build_board() -> void:
 	for c in _cards:
 		c.queue_free()
+
 	_cards.clear()
 
+	var total_cells := _grid_size.x * _grid_size.y
+
 	_values = _generate_shuffled_values()
-	_matched.assign(range(GRID_SIZE * GRID_SIZE).map(func(_i): return false))
+
+	_matched.assign(
+		range(total_cells).map(
+			func(_i): return false
+		)
+	)
+
 	_flipped.clear()
 	_matches_found = 0
 	_input_locked = false
 
 	var viewport_size: Vector2 = get_viewport_rect().size
-	var available_size: float = min(viewport_size.x, viewport_size.y) - GRID_MARGIN * 2.0
-	var cell_size: float = available_size / GRID_SIZE
-	var card_dim := Vector2(cell_size * CARD_GAP_RATIO, cell_size * CARD_GAP_RATIO)
 
-	var grid_pixel_size: float = cell_size * GRID_SIZE
-	var start_x: float = (viewport_size.x - grid_pixel_size) / 2.0 + cell_size / 2.0
-	var start_y: float = viewport_size.y * TOP_OFFSET_RATIO
+	var available_width := viewport_size.x - GRID_MARGIN * 2.0
+	var available_height := viewport_size.y - GRID_MARGIN * 2.0
+
+	var cell_size: float = min(
+	available_width / float(_grid_size.x),
+	available_height / float(_grid_size.y)
+	)
+
+	var card_dim := Vector2(
+		cell_size * CARD_GAP_RATIO,
+		cell_size * CARD_GAP_RATIO
+	)
+
+	var grid_pixel_width := cell_size * _grid_size.x
+	var grid_pixel_height := cell_size * _grid_size.y
+
+	var start_x := (viewport_size.x - grid_pixel_width) / 2.0 + cell_size / 2.0
+	var start_y := viewport_size.y * TOP_OFFSET_RATIO
 
 	for i in _values.size():
+
 		var card := CARD_SCENE.instantiate() as Card
-		var row := i / GRID_SIZE
-		var col := i % GRID_SIZE
-		card.position = Vector2(start_x + col * cell_size, start_y + row * cell_size)
+
+		var row := i / _grid_size.x
+		var col := i % _grid_size.x
+
+		card.position = Vector2(
+			start_x + col * cell_size,
+			start_y + row * cell_size
+		)
+
 		card.set_card_size(card_dim)
 		card.setup(_values[i])
+
 		card.card_clicked.connect(_on_card_clicked)
+
 		add_child(card)
 		_cards.append(card)
 
 func _generate_shuffled_values() -> Array[int]:
 	var pairs: Array[int] = []
-	for i in (GRID_SIZE * GRID_SIZE) / 2:
+
+	var total_cells := _grid_size.x * _grid_size.y
+	for i in total_cells / 2:
 		pairs.append(i)
 		pairs.append(i)
+
 	pairs.shuffle()
+
 	return pairs
 
 func _on_card_clicked(card: Card) -> void:
@@ -100,7 +147,7 @@ func _on_card_clicked(card: Card) -> void:
 		_flipped.clear()
 		_input_locked = false
 		_sound.play("match")
-		if _matches_found == (GRID_SIZE * GRID_SIZE) / 2:
+		if _matches_found == (_grid_size.x * _grid_size.y) / 2:
 			_on_puzzle_solved()
 	else:
 		await get_tree().create_timer(FLIP_BACK_DELAY).timeout

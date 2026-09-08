@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dotsl11d2wuu4"]
+
+[ext_resource type="Texture2D" uid="uid://cfn404xplnjiv" path="res://Sprites/setting.png" id="1_cbyym"]
+[ext_resource type="Script" uid="uid://rfn7xxvpn1tf" path="res://Scenes/LevelButton.gd" id="1_vdu52"]
+
+[node name="LevelButton" type="Control" unique_id=56957554 node_paths=PackedStringArray("button", "label")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_vdu52")
+button = NodePath("TextureButton")
+label = NodePath("TextureButton/Label")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=274809407]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_cbyym")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=510585959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

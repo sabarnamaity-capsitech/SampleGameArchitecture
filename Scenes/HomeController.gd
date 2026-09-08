@@ -11,4 +11,4 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	print("Play button pressed")
 	# _sound.play("click")
-	_scene.go_to("gameplay")
+	_scene.go_to("level_select")

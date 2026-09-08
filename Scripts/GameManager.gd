@@ -20,7 +20,8 @@ func start_level(level_id: int) -> void:
 	_elapsed = 0.0
 	_running = true
 	GameBus.level_started.emit(level_id)
-
+func select_level(level_id: int) -> void:
+	current_level_id = level_id
 func report_win() -> void:
 	if not _running:
 		return

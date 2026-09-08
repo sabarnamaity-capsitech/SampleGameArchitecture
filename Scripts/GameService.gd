@@ -30,4 +30,4 @@ func _ready() -> void:
 	game.setup(save, ui)
 	# for key in config.sounds:
 	# 	sound.register(key, config.sounds[key])
-	scene.go_to.call_deferred("home")
+	# scene.go_to.call_deferred("home")

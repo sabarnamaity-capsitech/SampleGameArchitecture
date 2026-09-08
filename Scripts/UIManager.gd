@@ -15,7 +15,9 @@ func push(panel_name: String) -> void:
 	var packed: PackedScene = _config.panels[panel_name]
 	var instance = packed.instantiate()
 	if instance.has_method("setup"):
+		# instance.setup(GameService.sound, self, GameService.game, GameService.scene)
 		instance.setup(GameService.sound, self, GameService.game, GameService.scene)
+
 	add_child(instance)
 	_open_panels[panel_name] = instance
 

@@ -22,7 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_llaig")
 time_label = NodePath("Panel/TimeLabel")
 retry_button = NodePath("Panel/Restart")
-home_button = NodePath("Panel/Retry")
+home_button = NodePath("Panel/Homebtn")
 
 [node name="Panel" type="Panel" parent="." unique_id=452676681]
 layout_mode = 1
@@ -91,6 +91,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Retry" type="TextureButton" parent="Panel" unique_id=2021204805]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

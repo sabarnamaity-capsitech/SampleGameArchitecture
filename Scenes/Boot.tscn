@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dw1opdhofl2f8"]
 
 [ext_resource type="Texture2D" uid="uid://bfjpenbpiwplc" path="res://icon.svg" id="1_0kqyt"]
+[ext_resource type="Script" uid="uid://dbnyvsnrylgpu" path="res://Scenes/Boot.gd" id="1_tmp6q"]
 
 [node name="Boot" type="Node2D" unique_id=1993911600]
+script = ExtResource("1_tmp6q")
+splash_duration = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2093993800]
 position = Vector2(538.5, 982.5)

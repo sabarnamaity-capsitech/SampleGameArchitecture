@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LevelDatabase" format=3 uid="uid://cyp6jtglx25yc"]
+
+[ext_resource type="Script" uid="uid://disl4wede2xde" path="res://Scripts/LevelData.gd" id="1_wojvh"]
+
+[resource]
+script = ExtResource("1_wojvh")
+grid_sizes = Array[Vector2i]([Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(2, 2), Vector2i(5, 2)])
+metadata/_custom_type_script = "uid://disl4wede2xde"
