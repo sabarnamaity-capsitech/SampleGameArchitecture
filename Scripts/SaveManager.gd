@@ -28,7 +28,12 @@ func mark_level_complete(level_id: int, time_taken: float) -> void:
 
 func is_level_complete(level_id: int) -> bool:
 	return _data["levels_completed"].has(str(level_id))
-
+func is_level_unlocked(level_id: int) -> bool:
+	# 1st level shob shomoy free
+	if level_id <= 1:
+		return true
+	# baki gulo — thik agerta complete thakle unlock
+	return is_level_complete(level_id - 1)
 func get_setting(key: String, default_value: Variant = null) -> Variant:
 	return _data["settings"].get(key, default_value)
 

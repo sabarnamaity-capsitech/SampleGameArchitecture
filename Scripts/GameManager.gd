@@ -30,6 +30,7 @@ func report_win() -> void:
 	_save.mark_level_complete(current_level_id, _elapsed)
 	_ui.push("win")
 	GameBus.level_won.emit(current_level_id, _elapsed)
+	GameBus.level_completed.emit(current_level_id)
 	print("LEVEL WON EMITTED")
 
 func report_lose() -> void:

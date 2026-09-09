@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cfn404xplnjiv" path="res://Sprites/setting.png" id="1_cbyym"]
 [ext_resource type="Script" uid="uid://rfn7xxvpn1tf" path="res://Scenes/LevelButton.gd" id="1_vdu52"]
+[ext_resource type="Texture2D" uid="uid://cbflf6x2lfhh8" path="res://Sprites/lock1.png" id="3_guvcp"]
 
-[node name="LevelButton" type="Control" unique_id=56957554 node_paths=PackedStringArray("button", "label")]
+[node name="LevelButton" type="Control" unique_id=56957554 node_paths=PackedStringArray("button", "label", "lock_label")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 3
 anchors_preset = 0
@@ -12,6 +13,7 @@ offset_bottom = 200.0
 script = ExtResource("1_vdu52")
 button = NodePath("TextureButton")
 label = NodePath("TextureButton/Label")
+lock_label = NodePath("TextureRect")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=274809407]
 layout_mode = 1
@@ -35,3 +37,18 @@ theme_override_font_sizes/font_size = 80
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1551919320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -20.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_guvcp")
+expand_mode = 1
+stretch_mode = 5
