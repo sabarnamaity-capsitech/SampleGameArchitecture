@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctoynvifi5g6s"
+path="res://.godot/imported/Catchy Puzzle Game.wav-c2a194a45e36d28b7fd8fead59601b7a.sample"
+
+[deps]
+
+source_file="res://Audio/Catchy Puzzle Game.wav"
+dest_files=["res://.godot/imported/Catchy Puzzle Game.wav-c2a194a45e36d28b7fd8fead59601b7a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

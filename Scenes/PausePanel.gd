@@ -3,6 +3,7 @@ var _sound:AudioManager
 var _scene:SceneManager
 var _game:GameManager
 var _ui:UIManager
+var _save: SaveManager
 @export var restart_button: TextureButton
 @export var home_button: TextureButton
 @export var level_label: Label
@@ -11,11 +12,12 @@ func _ready() -> void:
 	restart_button.pressed.connect(_on_restart_pressed)
 	home_button.pressed.connect(_on_home_pressed)
 	GameBus.game_paused.connect(_on_game_paused)
-func setup(sound: AudioManager, ui: UIManager, game: GameManager, scene: SceneManager) -> void:
+func setup(sound: AudioManager, ui: UIManager, game: GameManager, scene: SceneManager, save: SaveManager) -> void:
 	_sound = sound
 	_ui = ui
 	_game = game
 	_scene = scene
+	_save = save
 func _on_restart_pressed() -> void:
 	print("Restart pressed")
 	_sound.play("click")

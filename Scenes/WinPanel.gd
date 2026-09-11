@@ -4,17 +4,18 @@ var _sound: AudioManager
 var _ui: UIManager
 var _game: GameManager
 var _scene: SceneManager
-
+var _save: SaveManager
 @export var time_label: Label
 @export var level_label: Label
 @export var retry_button: TextureButton
 @export var home_button: TextureButton
 
-func setup(sound: AudioManager, ui: UIManager, game: GameManager, scene: SceneManager) -> void:
+func setup(sound: AudioManager, ui: UIManager, game: GameManager, scene: SceneManager, save: SaveManager) -> void:
 	_sound = sound
 	_ui = ui
 	_game = game
 	_scene = scene
+	_save = save
 
 func _ready() -> void:
 	print("WIN PANEL READY")

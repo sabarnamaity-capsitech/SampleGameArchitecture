@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1lfdxxo6hicv"]
 
 [ext_resource type="Script" uid="uid://b4iro5imoiaix" path="res://Scenes/HomeController.gd" id="1_3wroe"]
+[ext_resource type="Texture2D" uid="uid://dyvn1aewy457u" path="res://Sprites/settings_icon_new.png" id="2_oauki"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xtytc"]
 font_size = 100
@@ -8,7 +9,7 @@ font_size = 100
 [sub_resource type="LabelSettings" id="LabelSettings_3wroe"]
 font_size = 100
 
-[node name="Home" type="Control" unique_id=1190345737 node_paths=PackedStringArray("play_button")]
+[node name="Home" type="Control" unique_id=1190345737 node_paths=PackedStringArray("play_button", "settings_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3wroe")
 play_button = NodePath("Panel/TextureButton")
+settings_button = NodePath("Panel/Settingsbtn")
 
 [node name="Panel" type="Panel" parent="." unique_id=570675499]
 layout_mode = 1
@@ -64,3 +66,17 @@ text = "play"
 label_settings = SubResource("LabelSettings_3wroe")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Settingsbtn" type="TextureButton" parent="Panel" unique_id=345662452]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -249.0
+offset_top = 84.0
+offset_right = -60.0
+offset_bottom = 273.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_oauki")
+ignore_texture_size = true
+stretch_mode = 4

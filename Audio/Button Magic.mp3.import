@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di8wqjk5pdm5m"
+path="res://.godot/imported/Button Magic.mp3-f10c1c230204a4a80a032e19ef3cc4ab.mp3str"
+
+[deps]
+
+source_file="res://Audio/Button Magic.mp3"
+dest_files=["res://.godot/imported/Button Magic.mp3-f10c1c230204a4a80a032e19ef3cc4ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
